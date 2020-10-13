@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Blue Privacy Extention",
+  "version": "0.0.1",
+  "browser_action": {
+    "default_icon": {
+      "16": "assets/images/icon16.png",
+      "48": "assets/images/icon48.png",
+      "128": "assets/images/icon128.png"
+    },
+    "default_title": "Blue Privacy Extention",
+    "default_popup": "popup.html"
+  },
+  "permissions": [ "storage", "webRequest", "<all_urls>" ],
+  "content_scripts": [ {
+    "matches": [ "<all_urls>" ],
+    "js": [ "content.js" ],
+    "run_at": "document_start"
+  } ],
+  "background": {
+    "scripts": [ "background.js" ],
+    "persistent": true
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}
