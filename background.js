@@ -1,11 +1,17 @@
-const notPrivateSearchEngine = ["google.com", "www.google.com"];
+const notPrivateSearchEngine = [
+  "google.com",
+  "google.co.jp",
+  "www.google.com",
+  "www.google.co.jp",
+];
 const privateSearchEngine = [
-  "https://duckduckgo.com",
-  "https://startpage.com",
-  "https://www.qwant.com",
+  { link: "https://duckduckgo.com", q: "/" },
+  { link: "https://startpage.com", q: "/search/" },
+  { link: "https://www.qwant.com", q: "/" },
+  { link: "https://www.mojeek.com", q: "/search" },
 ];
 
-let searchEngineInstance;
+let searchEngineInstance = {};
 let disableSearchEngine;
 let exceptions;
 
@@ -74,11 +80,18 @@ function redirectSearchEngine(url, initiator) {
     });
     return null;
   }
-  console.log("abcd" + url);
   if (url.pathname.includes("search")) {
-    return `${
-      searchEngineInstance || getRandomInstance(privateSearchEngine)
-    }${`/search/`}${url.search}`;
+    searchEngine =
+      searchEngineInstance || getRandomInstance(privateSearchEngine);
+    search = "";
+    url.search
+      .slice(1)
+      .split("&")
+      .forEach(function (input) {
+        if (input.startsWith("q=")) search = input;
+      });
+    console.log("search: ", search);
+    return `${searchEngine.link}${searchEngine.q}?${search}`;
   }
 }
 
