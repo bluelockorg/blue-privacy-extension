@@ -8,7 +8,7 @@ Google search will be redirected to an alternative, such as DuckDuckGo or Startp
 
 [Chrome Extension](https://chrome.google.com/webstore/detail/blue-privacy-extention/dejffacfngabcgldjbfildemnmnmkfbo)
 
-Firefox Extension - Coming soon
+[Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/blue-privacy-extention/) - This extension is yet to work properly.
 
 ## License
 
