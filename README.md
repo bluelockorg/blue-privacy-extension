@@ -12,7 +12,7 @@ Firefox Extension - Coming soon
 
 ## License
 
-Code is released under [the MIT license](LICENSE.txt).
+Code is released under [the MIT license](LICENSE).
 
 ## Privacy Policy
 
