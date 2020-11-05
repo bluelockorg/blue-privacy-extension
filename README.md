@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/github/license/bluelockorg/Blue-Privacy-Extension)](LICENSE)
+
 # Blue Privacy Extension
 
 An simple extension that redirects non-private services to a private alternative.

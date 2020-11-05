@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Blue Privacy Extention",
-  "version": "0.0.4",
+  "name": "Blue Privacy Extension",
+  "version": "0.0.5",
   "browser_action": {
     "default_icon": {
       "16": "assets/images/icon16.png",
       "48": "assets/images/icon48.png",
       "128": "assets/images/icon128.png"
     },
-    "default_title": "Blue Privacy Extention",
+    "default_title": "Blue Privacy Extension",
     "default_popup": "popup.html"
   },
   "permissions": [ "storage", "webRequest", "webRequestBlocking", "<all_urls>" ],
