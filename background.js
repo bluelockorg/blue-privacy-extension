@@ -57,27 +57,11 @@ function isException(url, initiator) {
   );
 }
 
-function isFirefox() {
-  return typeof InstallTrigger !== "undefined";
-}
-
 function redirectSearchEngine(url, initiator) {
   if (disableSearchEngine || isException(url, initiator)) {
     return null;
   }
   if (url.pathname.includes("/home")) {
-    return null;
-  }
-  if (
-    isFirefox() &&
-    initiator &&
-    (initiator.origin === searchEngineInstance ||
-      searchEngineInstance.includes(initiator.origin) ||
-      notPrivateSearchEngine.includes(initiator.host))
-  ) {
-    browser.storage.sync.set({
-      redirectBypassFlag: true,
-    });
     return null;
   }
   if (url.pathname.includes("search")) {
