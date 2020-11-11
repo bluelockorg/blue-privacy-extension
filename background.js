@@ -1,9 +1,4 @@
-const notPrivateSearchEngine = [
-  "google.com",
-  "google.co.jp",
-  "www.google.com",
-  "www.google.co.jp",
-];
+const googleSearchRegex = /https?:\/\/(((www)\.)?(google\.).*(\/search)|search\.(google\.).*)/;
 const privateSearchEngine = [
   { link: "https://duckduckgo.com", q: "/" },
   { link: "https://startpage.com", q: "/search/" },
@@ -11,7 +6,7 @@ const privateSearchEngine = [
   { link: "https://www.mojeek.com", q: "/search" },
 ];
 
-let searchEngineInstance = {};
+let searchEngineInstance;
 let disableSearchEngine;
 let exceptions;
 
@@ -61,22 +56,16 @@ function redirectSearchEngine(url, initiator) {
   if (disableSearchEngine || isException(url, initiator)) {
     return null;
   }
-  if (url.pathname.includes("/home")) {
-    return null;
-  }
-  if (url.pathname.includes("search")) {
-    searchEngine =
-      searchEngineInstance || getRandomInstance(privateSearchEngine);
-    search = "";
-    url.search
-      .slice(1)
-      .split("&")
-      .forEach(function (input) {
-        if (input.startsWith("q=")) search = input;
-      });
-    console.log("search: ", search);
-    return `${searchEngine.link}${searchEngine.q}?${search}`;
-  }
+  searchEngine = searchEngineInstance || getRandomInstance(privateSearchEngine);
+  search = "";
+  url.search
+    .slice(1)
+    .split("&")
+    .forEach(function (input) {
+      if (input.startsWith("q=")) search = input;
+    });
+  console.log("search: ", search);
+  return `${searchEngine.link}${searchEngine.q}?${search}`;
 }
 
 browser.webRequest.onBeforeRequest.addListener(
@@ -89,7 +78,7 @@ browser.webRequest.onBeforeRequest.addListener(
       initiator = new URL(details.initiator);
     }
     let redirect;
-    if (notPrivateSearchEngine.includes(url.host)) {
+    if (url.href.match(googleSearchRegex)) {
       redirect = {
         redirectUrl: redirectSearchEngine(url, initiator),
       };
