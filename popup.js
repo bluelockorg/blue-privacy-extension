@@ -2,7 +2,7 @@ var translate = document.getElementsByTagName('i18n');
 
 for (var i = 0; i < translate.length; i++) {
 	var msg = translate[i].innerText;
-	translate[i].innerText = browser.i18n.getMessage(msg);
+	translate[i].innerText = chrome.i18n.getMessage(msg);
 }
 
 let disableSearchEngine = document.querySelector("#disable-searchEngine");
