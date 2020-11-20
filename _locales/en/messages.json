@@ -1,0 +1,16 @@
+{
+	"popupTitle": {
+		"message": "Search Engine Redirects",
+		"description": "Title of the addon's popup"
+	},
+	
+	"sourceCodeAvailable": {
+		"message": "Source code available on",
+		"description": "The source code is available on GitHub"
+	},
+	
+	"version": {
+		"message": "Version",
+		"description": "the addon's version"
+	}
+}
