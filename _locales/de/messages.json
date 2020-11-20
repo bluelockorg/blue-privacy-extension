@@ -3,12 +3,12 @@
 		"message": "Suchmaschinen ersetzen",
 		"description": "Title of the addon's popup"
 	},
-	
+
 	"sourceCodeAvailable": {
 		"message": "Der Quellcode ist verfügbar auf",
 		"description": "The source code is available on GitHub"
 	},
-	
+
 	"version": {
 		"message": "Version",
 		"description": "the addon's version"
