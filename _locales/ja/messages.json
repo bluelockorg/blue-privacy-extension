@@ -1,16 +1,16 @@
 {
 	"popupTitle": {
-		"message": "Search Engine Redirects",
+		"message": "検索エンジンリダイレクト",
 		"description": "Title of the addon's popup"
 	},
-
+	
 	"sourceCodeAvailable": {
-		"message": "Source code available on",
+		"message": "ソースコード：",
 		"description": "The source code is available on GitHub"
 	},
-
+	
 	"version": {
-		"message": "Version",
+		"message": "バージョン",
 		"description": "the addon's version"
 	}
 }
