@@ -1,16 +1,21 @@
+window.browser = window.browser || window.chrome;
+
 const googleSearchRegex = /https?:\/\/(((www)\.)?(google\.).*(\/search)|search\.(google\.).*)/;
 const privateSearchEngine = [
-  { link: "https://duckduckgo.com", q: "/" },
-  { link: "https://startpage.com", q: "/search/" },
-  { link: "https://www.qwant.com", q: "/" },
-  { link: "https://www.mojeek.com", q: "/search" },
+  { link: "https://duckduckgo.com", q: "/?q=" },
+  { link: "https://startpage.com", q: "/search/?q=" },
+  { link: "https://www.qwant.com", q: "/?q=" },
+  { link: "https://www.mojeek.com", q: "/search?q=" },
+  { link: "https://metager.org", q: "/meta/meta.ger3?eingabe=" },
+  { link: "https://swisscows.com", q: "/web?query=" },
+  { link: "https://search.privacytools.io/searx", q: "/?q=" },
+  { link: "https://spot.ecloud.global", q: "/?q=" },
+  { link: "https://search.disroot.org", q: "/?q=" },
 ];
 
 let searchEngineInstance;
 let disableSearchEngine;
 let exceptions;
-
-window.browser = window.browser || window.chrome;
 
 browser.storage.sync.get(
   ["searchEngineInstance", "disableSearchEngine", "theme", "exceptions"],
@@ -56,16 +61,19 @@ function redirectSearchEngine(url, initiator) {
   if (disableSearchEngine || isException(url, initiator)) {
     return null;
   }
-  searchEngine = searchEngineInstance || getRandomInstance(privateSearchEngine);
+
+  let seInstance = privateSearchEngine.find(
+    (i) => i.link == searchEngineInstance
+  );
+  seInstance = seInstance || getRandomInstance(privateSearchEngine);
   search = "";
   url.search
     .slice(1)
     .split("&")
     .forEach(function (input) {
-      if (input.startsWith("q=")) search = input;
+      if (input.startsWith("q=")) search = input.substring(2);
     });
-  console.log("search: ", search);
-  return `${searchEngine.link}${searchEngine.q}?${search}`;
+  return `${seInstance.link}${seInstance.q}${search}`;
 }
 
 browser.webRequest.onBeforeRequest.addListener(

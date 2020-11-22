@@ -12,5 +12,9 @@
 	"version": {
 		"message": "Version",
 		"description": "the addon's version"
+	},
+	"searchEngineInstance": {
+		"message": "Search Engine Instance",
+		"description": "Search Engine Instance Selection"
 	}
 }
