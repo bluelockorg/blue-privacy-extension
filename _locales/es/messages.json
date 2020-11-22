@@ -1,0 +1,20 @@
+{
+	"popupTitle": {
+		"message": "Redireccionar de Buscador",
+		"description": "Title of the addon's popup"
+	},
+
+	"sourceCodeAvailable": {
+		"message": "El código fuente está disponible en",
+		"description": "The source code is available on GitHub"
+	},
+
+	"version": {
+		"message": "Versión",
+		"description": "the addon's version"
+	},
+	"searchEngineInstance": {
+		"message": "Instancia de Buscador",
+		"description": "Search Engine Instance Selection"
+	}
+}
