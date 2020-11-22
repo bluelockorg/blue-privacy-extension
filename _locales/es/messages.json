@@ -16,5 +16,10 @@
 	"searchEngineInstance": {
 		"message": "Instancia de Buscador",
 		"description": "Search Engine Instance Selection"
+	},
+	"moreOptions": {
+		"message": "Mas Opciones",
+		"description": "More options button"
 	}
+
 }
