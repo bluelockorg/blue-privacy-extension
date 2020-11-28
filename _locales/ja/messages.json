@@ -20,6 +20,9 @@
 	"moreOptions": {
 		"message": "設定",
 		"description": "More options button"
+	},
+	"randomSelect": {
+		"message": "選択したものからランダムにリダイレクト",
+		"description": "Redirect randomly from the ones selected"
 	}
-
 }
