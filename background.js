@@ -1,6 +1,9 @@
 window.browser = window.browser || window.chrome;
 
-const googleSearchRegex = /https?:\/\/(((www)\.)?(google\.).*(\/search)|search\.(google\.).*)/;
+const googleSearchRegex = /https?:\/\/(((www|search)\.)?(google\.).*(\/search)|search\.(google\.).*)/;
+const yahooSearchRegex = /https?:\/\/(((www|search)\.)?(yahoo\.).*(\/search)|search\.(yahoo\.).*)/;
+const bingSearchRegex = /https?:\/\/(((www|search)\.)?(bing\.).*(\/search)|search\.(bing\.).*)/;
+const yandexSearchRegex = /https?:\/\/(((www|search)\.)?(yandex\.).*(\/search)|search\.(yandex\.).*)/;
 const privateSearchEngine = [
   { link: "https://duckduckgo.com", q: "/?q=" },
   { link: "https://startpage.com", q: "/search/?q=" },
@@ -11,16 +14,19 @@ const privateSearchEngine = [
   { link: "https://search.privacytools.io/searx", q: "/?q=" },
   { link: "https://spot.ecloud.global", q: "/?q=" },
   { link: "https://search.disroot.org", q: "/?q=" },
+  { link: "https://www.searchencrypt.com", q: "/search/?q=" },
+  { link: "https://gibiru.com", q: "/results.html?q=" },
+  { link: "https://www.yippy.com", q: "/search?query=" },
 ];
 
-let searchEngineInstance;
+let searchEngineInstances;
 let disableSearchEngine;
 let exceptions;
 
 browser.storage.sync.get(
-  ["searchEngineInstance", "disableSearchEngine", "theme", "exceptions"],
+  ["searchEngineInstances", "disableSearchEngine", "theme", "exceptions"],
   (result) => {
-    searchEngineInstance = result.searchEngineInstance;
+    searchEngineInstances = result.searchEngineInstances;
     disableSearchEngine = result.disableSearchEngine;
     exceptions = result.exceptions
       ? result.exceptions.map((e) => {
@@ -31,8 +37,8 @@ browser.storage.sync.get(
 );
 
 browser.storage.onChanged.addListener((changes) => {
-  if ("searchEngineInstance" in changes) {
-    searchEngineInstance = changes.searchEngineInstance.newValue;
+  if ("searchEngineInstances" in changes) {
+    searchEngineInstances = changes.searchEngineInstances.newValue;
   }
 
   if ("disableSearchEngine" in changes) {
@@ -61,18 +67,33 @@ function redirectSearchEngine(url, initiator) {
   if (disableSearchEngine || isException(url, initiator)) {
     return null;
   }
-
-  let seInstance = privateSearchEngine.find(
-    (i) => i.link == searchEngineInstance
-  );
-  seInstance = seInstance || getRandomInstance(privateSearchEngine);
+  seInstance =
+    getRandomInstance(searchEngineInstances) ||
+    getRandomInstance(privateSearchEngine);
   search = "";
-  url.search
-    .slice(1)
-    .split("&")
-    .forEach(function (input) {
-      if (input.startsWith("q=")) search = input.substring(2);
-    });
+  if (url.href.match(googleSearchRegex) || url.href.match(bingSearchRegex)) {
+    url.search
+      .slice(1)
+      .split("&")
+      .forEach(function (input) {
+        if (input.startsWith("q=")) search = input.substring(2);
+      });
+  } else if (url.href.match(yahooSearchRegex)) {
+    url.search
+      .slice(1)
+      .split("&")
+      .forEach(function (input) {
+        if (input.startsWith("p=")) search = input.substring(2);
+      });
+  } else if (url.href.match(yandexSearchRegex)) {
+    url.search
+      .slice(1)
+      .split("&")
+      .forEach(function (input) {
+        if (input.startsWith("text=")) search = input.substring(5);
+      });
+  }
+
   return `${seInstance.link}${seInstance.q}${search}`;
 }
 
@@ -86,7 +107,13 @@ browser.webRequest.onBeforeRequest.addListener(
       initiator = new URL(details.initiator);
     }
     let redirect;
-    if (url.href.match(googleSearchRegex)) {
+    if (
+      url.href.match(googleSearchRegex) ||
+      url.href.match(yahooSearchRegex) ||
+      url.href.match(bingSearchRegex) ||
+      url.href.match(yandexSearchRegex)
+    ) {
+      console.log("abc");
       redirect = {
         redirectUrl: redirectSearchEngine(url, initiator),
       };

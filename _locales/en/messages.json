@@ -20,6 +20,9 @@
 	"moreOptions": {
 		"message": "More Options",
 		"description": "More options button"
+	},
+	"randomSelect": {
+		"message": "redirect randomly from selected",
+		"description": "Redirect randomly from the ones selected"
 	}
-
 }

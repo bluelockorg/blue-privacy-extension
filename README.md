@@ -12,6 +12,12 @@ Google search will be redirected randomly to an alternative search engine, such 
 
 [Firefox Extension](https://addons.mozilla.org/addon/blue-privacy-extention/)
 
+## List of Search Engines
+
+Search engines are listed [here](https://github.com/bluelockorg/Blue-Privacy-Extension/wiki/List-of-Private-and-Non-Private-Search-Engines).
+
+If you have any suggestions for private or non-private search engines we are missing, please suggest in [#3](https://github.com/bluelockorg/Blue-Privacy-Extension/issues/3).
+
 ## How to
 
 First clone this repository locally

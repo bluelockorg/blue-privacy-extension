@@ -1,193 +1,186 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body {
-        text-align: center;
-        color: #ededed;
-        background-color: #101010;
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 3px;
-      }
 
-      body .light {
-        color: #101010;
-        background-color: #ededed;
-      }
+<head>
+  <style>
+    body {
+      text-align: center;
+      color: #ededed;
+      background-color: #101010;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 3px;
+    }
 
-      .header {
-        display: flex;
-        align-items: center;
-      }
+    body .light {
+      color: #101010;
+      background-color: #ededed;
+    }
 
-      .head {
-        text-align: left;
-      }
+    .header {
+      display: flex;
+      align-items: center;
+    }
 
-      .head p {
-        font-size: 20px;
-        font-weight: bold;
-        margin: 0;
-      }
+    .head {
+      text-align: left;
+    }
 
-      .header img {
-        width: 64px;
-        height: 64px;
-      }
+    .head p {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
 
-      .settings-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    .header img {
+      width: 64px;
+      height: 64px;
+    }
 
-      .settings-title {
-        font-size: 20px;
-      }
+    .settings-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
+    .settings-title {
+      font-size: 20px;
+    }
 
-      #source-code {
-        font-size: 10px;
-        font-weight: lighter;
-      }
+    button {
+      height: 30px;
+      width: 30px;
+      outline: none;
+    }
 
-      #source-code a {
-        color: inherit;
-      }
+    #source-code {
+      font-size: 10px;
+      font-weight: lighter;
+    }
 
-      /* Slider css from https://www.w3schools.com/howto/howto_css_switch.asp */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
+    #source-code a {
+      color: inherit;
+    }
 
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+    /* Slider css from https://www.w3schools.com/howto/howto_css_switch.asp */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
 
-      input:checked + .slider {
-        background-color: #0052ff;
-      }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
 
-      input:focus + .slider {
-        box-shadow: 0 0 1px #0052ff;
-      }
+    input:checked+.slider {
+      background-color: #0052ff;
+    }
 
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
+    input:focus+.slider {
+      box-shadow: 0 0 1px #0052ff;
+    }
 
-      .slider.round {
-        border-radius: 34px;
-      }
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
 
-      .slider.round:before {
-        border-radius: 50%;
-      }
-      /* End of slider css */
+    .slider.round {
+      border-radius: 34px;
+    }
 
-      select {
-        background-color: #101010;
-        color: #ededed;
-        border-radius: 5px;
-        padding: 3px;
-        width: 100%;
-      }
+    .slider.round:before {
+      border-radius: 50%;
+    }
 
-      .instance-setting {
-        width: 100%;
-        text-align: left;
-      }
+    /* End of slider css */
 
-      .instance-setting p {
-        font-size: 15px;
-        margin-bottom: 3px;
-      }
-    </style>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    <div class="header">
-      <a href="https://bluelock.org" target="_blank"
-        ><img src="./assets/images/1024x1024.png" alt="BlueLock.org logo"
-      /></a>
-      <div class="head">
-        <p>Privacy</p>
-        <p>Extension</p>
-      </div>
+    select {
+      background-color: #101010;
+      color: #ededed;
+      border-radius: 5px;
+      padding: 3px;
+      width: 100%;
+    }
+
+    .instance-setting {
+      width: 100%;
+      text-align: left;
+    }
+
+    .instance-setting p {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+
+    .instance-setting label {
+      font-size: 15px;
+    }
+
+  </style>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div class="header">
+    <a href="https://bluelock.org" target="_blank"><img src="./assets/images/1024x1024.png"
+        alt="BlueLock.org logo" /></a>
+    <div class="head">
+      <p>Privacy</p>
+      <p>Extension</p>
     </div>
-    <section class="settings-block">
-      <div>
-        <p class="settings-title"><i18n>popupTitle</i18n></p>
-      </div>
-      <label class="switch">
-        <input
-          aria-hidden="true"
-          id="disable-searchEngine"
-          type="checkbox"
-          checked
-        />
-        <span class="slider"></span>
-      </label>
-    </section>
-    <a class="button" id="more-options"></a>
-    <section class="instance-setting">
-      <p><i18n>searchEngineInstance</i18n></p>
-      <select name="searchEngine-instances" id="searchEngine-instances">
-        <option value="none">Not Selected (random)</option>
-        <option value="https://duckduckgo.com">https://duckduckgo.com</option>
-        <option value="https://startpage.com">https://startpage.com</option>
-        <option value="https://www.qwant.com">https://www.qwant.com</option>
-        <option value="https://www.mojeek.com">https://www.mojeek.com</option>
-        <option value="https://metager.org">https://metager.org</option>
-        <option value="https://swisscows.com">https://swisscows.com</option>
-        <option value="https://search.privacytools.io/searx">
-          https://search.privacytools.io/searx
-        </option>
-        <option value="https://spot.ecloud.global">
-          https://spot.ecloud.global
-        </option>
-        <option value="https://search.disroot.org">
-          https://search.disroot.org
-        </option>
-      </select>
-    </section>
+  </div>
+  <section class="settings-block">
+    <div>
+      <p class="settings-title">
+        <i18n>popupTitle</i18n>
+      </p>
+    </div>
+    <label class="switch">
+      <input aria-hidden="true" id="disable-searchEngine" type="checkbox" checked />
+      <span class="slider"></span>
+    </label>
+  </section>
+  <a class="button" id="more-options"></a>
+  <ul id="menu"></ul>
+  <section class="instance-setting searchEngineInstances">
+    <div>
+      <p>
+        <i18n>searchEngineInstance</i18n>
+      </p>
+      (<i18n>randomSelect</i18n>)
+    </div>
+    <script src="jquery-3.5.1.min.js"></script>
     <script src="./options.js"></script>
     <script src="localise.js"></script>
-  </body>
+</body>
+
 </html>
