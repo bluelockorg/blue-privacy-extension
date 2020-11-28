@@ -12,5 +12,17 @@
 	"version": {
 		"message": "Version",
 		"description": "the addon's version"
+	},
+	"searchEngineInstance": {
+		"message": "Suchmaschinen-Instanz",
+		"description": "Search Engine Instance Selection"
+	},
+	"moreOptions": {
+		"message": "Weitere Optionen",
+		"description": "More options button"
+	},
+	"randomSelect": {
+		"message": "Zufällig zu ausgewählten Diensten weiterleiten",
+		"description": "Redirect randomly from the ones selected"
 	}
 }
