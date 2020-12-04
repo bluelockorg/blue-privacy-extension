@@ -1,4 +1,6 @@
-window.browser = window.browser || window.chrome;
+window.browser = (function () {
+  return window.msBrowser || window.browser || window.chrome;
+})();
 
 var translate = document.getElementsByTagName("i18n");
 

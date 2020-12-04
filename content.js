@@ -1,1 +1,3 @@
-window.browser = window.browser || window.chrome;
+window.browser = (function () {
+  return window.msBrowser || window.browser || window.chrome;
+})();

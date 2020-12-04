@@ -1,4 +1,6 @@
-window.browser = window.browser || window.chrome;
+window.browser = (function () {
+  return window.msBrowser || window.browser || window.chrome;
+})();
 
 const googleSearchRegex = /https?:\/\/(((www|search)\.)?(google\.).*(\/search)|search\.(google\.).*)/;
 const yahooSearchRegex = /https?:\/\/(((www|search)\.)?(yahoo\.).*(\/search)|search\.(yahoo\.).*)/;
@@ -26,7 +28,10 @@ let exceptions;
 browser.storage.sync.get(
   ["searchEngineInstances", "disableSearchEngine", "theme", "exceptions"],
   (result) => {
-    searchEngineInstances = result.searchEngineInstances;
+    searchEngineInstances = result.searchEngineInstances || [
+      { link: "https://duckduckgo.com", q: "/?q=" },
+      { link: "https://startpage.com", q: "/search/?q=" },
+    ];
     disableSearchEngine = result.disableSearchEngine;
     exceptions = result.exceptions
       ? result.exceptions.map((e) => {
@@ -53,7 +58,8 @@ browser.storage.onChanged.addListener((changes) => {
 });
 
 function getRandomInstance(instanceList) {
-  return instanceList[~~(instanceList.length * Math.random())];
+  if (instanceList)
+    return instanceList[~~(instanceList.length * Math.random())];
 }
 
 function isException(url, initiator) {
