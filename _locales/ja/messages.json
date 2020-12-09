@@ -24,5 +24,9 @@
 	"randomSelect": {
 		"message": "選択したものからランダムにリダイレクト",
 		"description": "Redirect randomly from the ones selected"
+	},
+	"noneSelect": {
+		"message": "選択なし時にはランダムに",
+		"description": "Redirect randomly from all search engines"
 	}
 }
