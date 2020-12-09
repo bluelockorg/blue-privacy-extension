@@ -16,7 +16,7 @@ Google search will be redirected randomly to an alternative search engine, such 
 
 Search engines are listed [here](https://github.com/bluelockorg/Blue-Privacy-Extension/wiki/List-of-Private-and-Non-Private-Search-Engines).
 
-If you have any suggestions for private or non-private search engines we are missing, please suggest in [#3](https://github.com/bluelockorg/Blue-Privacy-Extension/issues/3).
+If you have any suggestions for private or non-private search engines we are missing, please suggest in [Discussions #21](https://github.com/bluelockorg/Blue-Privacy-Extension/discussions/21).
 
 ## How to
 
