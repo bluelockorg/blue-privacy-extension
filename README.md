@@ -8,9 +8,7 @@ Google search will be redirected randomly to an alternative search engine, such 
 
 ## Get the Extension
 
-[Chrome Extension](https://chrome.google.com/webstore/detail/blue-privacy-extention/dejffacfngabcgldjbfildemnmnmkfbo)
-
-[Firefox Extension](https://addons.mozilla.org/addon/blue-privacy-extention/)
+[![Available in the Chrome Web Store](./assets/readme-ss/available-in-the-chrome-web-store.png)](https://chrome.google.com/webstore/detail/blue-privacy-extention/dejffacfngabcgldjbfildemnmnmkfbo) [![Get on Add-on](./assets/readme-ss/get-the-add-on-ff.png)](https://addons.mozilla.org/addon/blue-privacy-extention/) [![Get it from Microsoft](./assets/readme-ss/get-it-from-microsoft.png)](https://microsoftedge.microsoft.com/addons/detail/blue-privacy-extension/ebbgkcifnlbbjkpngpiopknaglappcbc)
 
 ## List of Search Engines
 
