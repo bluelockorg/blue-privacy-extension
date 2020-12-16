@@ -24,5 +24,9 @@
 	"randomSelect": {
 		"message": "Zufällig zu ausgewählten Diensten weiterleiten",
 		"description": "Redirect randomly from the ones selected"
+	},
+	"noneSelect": {
+		"message": "für zufällige Weiterleitung nichts auswählen",
+		"description": "Redirect randomly from all search engines"
 	}
 }
