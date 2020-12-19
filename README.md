@@ -8,7 +8,9 @@ Google search will be redirected randomly to an alternative search engine, such 
 
 ## Get the Extension
 
-[![Available in the Chrome Web Store](./assets/readme-ss/available-in-the-chrome-web-store.png)](https://chrome.google.com/webstore/detail/blue-privacy-extention/dejffacfngabcgldjbfildemnmnmkfbo) [![Get on Add-on](./assets/readme-ss/get-the-add-on-ff.png)](https://addons.mozilla.org/addon/blue-privacy-extention/) [![Get it from Microsoft](./assets/readme-ss/get-it-from-microsoft.png)](https://microsoftedge.microsoft.com/addons/detail/blue-privacy-extension/ebbgkcifnlbbjkpngpiopknaglappcbc)
+[![Available in the Chrome Web Store](./assets/readme-ss/chrome-badge.png)](https://chrome.google.com/webstore/detail/blue-privacy-extention/dejffacfngabcgldjbfildemnmnmkfbo) [![Get on Add-on](./assets/readme-ss/firefox-badge.png)](https://addons.mozilla.org/addon/blue-privacy-extention/) [![Get it from Microsoft](./assets/readme-ss/edge-badge.png)](https://microsoftedge.microsoft.com/addons/detail/blue-privacy-extension/ebbgkcifnlbbjkpngpiopknaglappcbc) [![Get it from Opera add-ons](./assets/readme-ss/opera-badge.png)](https://addons.opera.com/en/extensions/details/blue-privacy-extension/)
+
+(Currently, Opera add-on is only available on Opera Developer and Opera Next. Waiting for manual review by Opera.)
 
 ## List of Search Engines
 
