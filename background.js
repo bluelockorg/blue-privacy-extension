@@ -9,6 +9,7 @@ const yandexSearchRegex = /https?:\/\/(((www|search)\.)?(yandex\.).*(\/search)|s
 const privateSearchEngine = [
   { link: "https://duckduckgo.com", q: "/?q=" },
   { link: "https://startpage.com", q: "/search/?q=" },
+  { link: "https://search.bluelock.org", q: "/search?q=" },
   { link: "https://www.qwant.com", q: "/?q=" },
   { link: "https://www.mojeek.com", q: "/search?q=" },
   { link: "https://metager.org", q: "/meta/meta.ger3?eingabe=" },

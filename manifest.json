@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Blue Privacy Extension",
-  "version": "0.1.0",
+  "description": "Redirect non-private services to private alternatives.",
+  "version": "0.1.1",
   "icons": {
     "16": "assets/images/icon16.png",
     "48": "assets/images/icon48.png",
