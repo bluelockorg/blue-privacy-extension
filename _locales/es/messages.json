@@ -1,5 +1,5 @@
 {
-	"popupTitle": {
+	"searchEngineRedirects": {
 		"message": "Redireccionar de Buscador",
 		"description": "Title of the addon's popup"
 	},

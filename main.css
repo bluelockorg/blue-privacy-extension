@@ -1,0 +1,359 @@
+body {
+    width: 330px;
+    height: 240px;
+    text-align: center;
+    color: #ededed;
+    background-color: #101010;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: visible
+}
+
+body .light {
+    color: #101010;
+    background-color: #ededed;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.head {
+    text-align: left;
+}
+
+.head p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header img {
+    width: 64px;
+    height: 64px;
+}
+
+.settings-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-title {
+    font-size: 20px;
+}
+
+.button-container {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 2px;
+}
+
+.button-container a {
+    background-color: #222;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-container a:hover {
+    background-color: #333;
+}
+
+button {
+    height: 30px;
+    width: 30px;
+    outline: none;
+}
+
+#source-code {
+    font-size: 10px;
+    font-weight: lighter;
+    margin-top: 20px;
+}
+
+#source-code a {
+    color: inherit;
+}
+
+/* Slider css from https://www.w3schools.com/howto/howto_css_switch.asp */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bbbbbb;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #eeeeee;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked+.slider {
+    background-color: #0052ff;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #0052ff;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* End of slider css */
+
+.passGenModal {
+    overflow: scroll;
+    display: none;
+    height: 360px;
+    width: 100%;
+    background-color: #222222;
+    transition: 0.4s;
+    margin-top: 58px;
+}
+
+.passGenModal.open {
+    display: block;
+}
+
+.passGenModalHeader {
+    position: fixed;
+    top: 518px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom: #aaaaaa solid 1px;
+    font-size: large;
+    background-color: #222222;
+    transition: 0.4s;
+}
+
+.open .passGenModalHeader {
+    transform: translateY(-510px);
+    transition: 0.4s;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    margin: 5px;
+    border-radius: 1.5px;
+    transform-origin: 100% 50%;
+}
+
+.topline {
+    transform: rotate(-45deg) translate(0, -6.9px);
+}
+
+.bottomline {
+    transform: rotate(45deg) translate(0, 6.9px);
+}
+
+.cross {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    top: 16px;
+}
+
+.open .cross {
+    display: block;
+}
+
+.passShow {
+    background-color: #111111;
+    padding: 16px;
+}
+
+.passShow p {
+    font-size: medium;
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.modalButton {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #444444;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.modalButton:hover {
+    background: #555555;
+}
+
+.toast-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.toast {
+    display: none;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 30px;
+}
+
+.toast.show {
+    display: block;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.modalSpace {
+    height: 20px;
+    width: 100%;
+}
+
+.modalInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: large;
+    color: #ffffff;
+}
+
+.modalInput input {
+    background: #333333;
+    border: #555555 solid 1px;
+    border-radius: 2px;
+    color: #ffffff;
+    width: 25px;
+    height: 20px;
+    padding: 5px;
+}
+
+.modalSlideContainer {
+    display: block;
+}
+
+.modalSlideContainer input {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.modalSlideContainer input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #0052ff;
+    cursor: pointer;
+}
+
+.modalSlideContainer input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #0052ff;
+    cursor: pointer;
+}

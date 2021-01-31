@@ -1,137 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body {
-        width: 300px;
-        text-align: center;
-        color: #ededed;
-        background-color: #101010;
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 3px;
-      }
 
-      body .light {
-        color: #101010;
-        background-color: #ededed;
-      }
+<head>
+  <link rel="stylesheet" href="./main.css" type="text/css">
+  <meta charset="UTF-8" />
+</head>
 
-      .header {
-        display: flex;
-        align-items: center;
-      }
-
-      .head {
-        text-align: left;
-      }
-
-      .head p {
-        font-size: 20px;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      .header img {
-        width: 64px;
-        height: 64px;
-      }
-
-      .settings-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .settings-title {
-        font-size: 20px;
-      }
-
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-
-      #source-code {
-        font-size: 10px;
-        font-weight: lighter;
-        margin-top: 20px;
-      }
-
-      #source-code a {
-        color: inherit;
-      }
-
-      /* Slider css from https://www.w3schools.com/howto/howto_css_switch.asp */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
-
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #bbb;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: #eee;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      input:checked + .slider {
-        background-color: #0052ff;
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px #0052ff;
-      }
-
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-      /* End of slider css */
-
-      #more-options {
-        background-color: #222;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      #more-options:hover {
-        background-color: #333;
-      }
-    </style>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
+<body>
+  <div id="main">
     <div class="header">
       <a href="https://bluelock.org" target="_blank">
         <img src="./assets/images/1024x1024.png" alt="BlueLock.org logo" />
@@ -143,32 +19,100 @@
     </div>
     <section class="settings-block">
       <div>
-        <p class="settings-title"><i18n>popupTitle</i18n></p>
-        <p id="demo"></p>
+        <p class="settings-title">
+          <i18n>searchEngineRedirects</i18n>
+        </p>
       </div>
       <label class="switch">
-        <input
-          aria-hidden="true"
-          id="disable-searchEngine"
-          type="checkbox"
-          checked
-        />
+        <input aria-hidden="true" id="disable-searchEngine" type="checkbox" checked />
         <span class="slider"></span>
       </label>
     </section>
-    <a class="button" id="more-options"><i18n>moreOptions</i18n></a>
+    <section class="button-container">
+      <a class="button" id="password-generator">
+        <i18n>genPass</i18n>
+      </a>
+    </section>
+    <section class="button-container">
+      <a class="button" id="more-options">
+        <i18n>moreOptions</i18n>
+      </a>
+    </section>
+    <section class="toast-container">
+      <div class="toast" id="passcopytoast">
+        <i18n>copiedToClipboard</i18n>
+      </div>
+    </section>
     <div id="source-code">
       <p>
         <i18n>sourceCodeAvailable</i18n>
-        <a
-          href="https://github.com/bluelockorg/Blue-Privacy-Extension"
-          target="_blank"
-        >
-          GitHub</a
-        >. <i18n>version</i18n>:&nbsp;<span id="version"></span>
+        <a href="https://github.com/bluelockorg/Blue-Privacy-Extension" target="_blank">
+          GitHub</a>. <i18n>version</i18n>:&nbsp;<span id="version"></span>
       </p>
     </div>
-    <script src="popup.js"></script>
-    <script src="localise.js"></script>
-  </body>
+  </div>
+  <section id="passGenModal" class="passGenModal">
+    <div class="passGenModalHeader">
+      <p>
+        <i18n>passGen</i18n>
+      </p>
+      <div class="cross" id="closeModal">
+        <div class="line topline"></div>
+        <div class="line bottomline"></div>
+      </div>
+    </div>
+    <div class="passShow">
+      <p id="password"></p>
+    </div>
+    <div class="modalButton" id="copyPass">
+      <a class="button">
+        <i18n>copyPass</i18n>
+      </a>
+    </div>
+    <div class="modalButton" id="regenPass">
+      <a class="button">
+        <i18n>regenPass</i18n>
+      </a>
+    </div>
+    <div class="modalSpace"></div>
+    <div class="modalSlideContainer">
+      <input type="range" min="8" max="128" id="lengthSlider">
+    </div>
+    <div class="modalInput">
+      <label for="length">Length (min: 8, max: 128)</label>
+      <input type="length" id="length" name="quantity" min="8" max="128">
+    </div>
+    <div class="modalInput">
+      <label for="lowercase">Lowercase</label>
+      <label class="switch">
+        <input aria-hidden="true" id="lowercase" type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="modalInput">
+      <label for="uppercase">Uppercase</label>
+      <label class="switch">
+        <input aria-hidden="true" id="uppercase" type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="modalInput">
+      <label for="number">Number</label>
+      <label class="switch">
+        <input aria-hidden="true" id="number" type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="modalInput">
+      <label for="symbol">Symbol</label>
+      <label class="switch">
+        <input aria-hidden="true" id="symbol" type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </section>
+  <script src="popup.js"></script>
+  <script src="localise.js"></script>
+</body>
+
 </html>

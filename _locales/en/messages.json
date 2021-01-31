@@ -1,14 +1,12 @@
 {
-	"popupTitle": {
+	"searchEngineRedirects": {
 		"message": "Search Engine Redirects",
 		"description": "Title of the addon's popup"
 	},
-
 	"sourceCodeAvailable": {
 		"message": "Source code available on",
 		"description": "The source code is available on GitHub"
 	},
-
 	"version": {
 		"message": "Version",
 		"description": "the addon's version"
@@ -28,5 +26,25 @@
 	"noneSelect": {
 		"message": "none for random",
 		"description": "Redirect randomly from all search engines"
+	},
+	"passGen": {
+		"message": "Password Generator",
+		"description": "Password Generator"
+	},
+	"genPass": {
+		"message": "Generate Password",
+		"description": "Generate Password"
+	},
+	"copyPass": {
+		"message": "Copy password",
+		"description": "Copy password"
+	},
+	"regenPass": {
+		"message": "Regenerate password",
+		"description": "Regenerate password"
+	},
+	"copiedToClipboard": {
+		"message": "Copied to clipboard",
+		"description": "Copied to clipboard"
 	}
 }
