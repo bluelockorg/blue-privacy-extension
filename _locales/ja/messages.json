@@ -26,5 +26,25 @@
 	"noneSelect": {
 		"message": "選択なし時にはランダムに",
 		"description": "Redirect randomly from all search engines"
+	},
+	"passGen": {
+		"message": "パスワード生成機",
+		"description": "Password Generator"
+	},
+	"genPass": {
+		"message": "パスワード生成",
+		"description": "Generate Password"
+	},
+	"copyPass": {
+		"message": "パスワードをコピー",
+		"description": "Copy password"
+	},
+	"regenPass": {
+		"message": "新しいパスワードを作成",
+		"description": "Regenerate password"
+	},
+	"copiedToClipboard": {
+		"message": "クリップボードにコピー",
+		"description": "Copied to clipboard"
 	}
 }
