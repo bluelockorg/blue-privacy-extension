@@ -3,12 +3,10 @@
 		"message": "Redireccionar de Buscador",
 		"description": "Title of the addon's popup"
 	},
-
 	"sourceCodeAvailable": {
 		"message": "El código fuente está disponible en",
 		"description": "The source code is available on GitHub"
 	},
-
 	"version": {
 		"message": "Versión",
 		"description": "the addon's version"
@@ -24,5 +22,29 @@
 	"randomSelect": {
 		"message": "redireccionar aleatoriamente desde seleccionado",
 		"description": "Redirect randomly from the ones selected"
+	},
+	"noneSelect": {
+		"message": "ninguno al azar",
+		"description": "Redirect randomly from all search engines"
+	},
+	"passGen": {
+		"message": "Generador de contraseñas",
+		"description": "Password Generator"
+	},
+	"genPass": {
+		"message": "Generar contraseña",
+		"description": "Generate Password"
+	},
+	"copyPass": {
+		"message": "Copiar contraseña",
+		"description": "Copy password"
+	},
+	"regenPass": {
+		"message": "Regenerar contraseña",
+		"description": "Regenerate password"
+	},
+	"copiedToClipboard": {
+		"message": "Copiada al portapapeles",
+		"description": "Copied to clipboard"
 	}
 }
