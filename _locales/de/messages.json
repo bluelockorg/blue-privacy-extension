@@ -26,5 +26,25 @@
 	"noneSelect": {
 		"message": "für zufällige Weiterleitung nichts auswählen",
 		"description": "Redirect randomly from all search engines"
+	},
+	"passGen": {
+		"message": "Passwortgenerator",
+		"description": "Password Generator"
+	},
+	"genPass": {
+		"message": "Generiere Passwort",
+		"description": "Generate Password"
+	},
+	"copyPass": {
+		"message": "Passwort kopieren",
+		"description": "Copy password"
+	},
+	"regenPass": {
+		"message": "Passwort neu generieren",
+		"description": "Regenerate password"
+	},
+	"copiedToClipboard": {
+		"message": "In die Zwischenablage kopiert",
+		"description": "Copied to clipboard"
 	}
 }
