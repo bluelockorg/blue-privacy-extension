@@ -2,7 +2,7 @@
 
 # Blue Privacy Extension
 
-An simple extension that redirects non-private services to a private alternative.
+A simple extension that redirects non-private services to a private alternative.
 
 Google search will be redirected randomly to an alternative search engine, such as DuckDuckGo or Startpage, or you can choose a prefered search engine from our list.
 
